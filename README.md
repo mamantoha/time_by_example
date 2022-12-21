@@ -2,7 +2,6 @@
 
 Provides a Crystal implementation of Go-style time [formatting](https://pkg.go.dev/time#Time.Format) by example.
 
-
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
@@ -30,7 +29,7 @@ For example:
 ```crystal
 time = Time.local(2022, 12, 20, 17, 15, 30, location: Time::Location.load("Asia/Taipei"))
 
-time.by_example("Jan 02 2006 @ 03:04 pm") => "Dec 20 2022 @ 5:15 pm"
+time.by_example("Jan 02 2006 @ 03:04 pm") => "Dec 20 2022 @ 05:15 pm"
 time.by_example("Jan 02 2006 @ 15:04")    => "Dec 20 2022 @ 17:15"
 time.by_example("Mon 02 Jan 15:04")       => "Tue 20 Dec 17:15"
 time.by_example("01/02/06")               => "12/20/22"
@@ -42,13 +41,17 @@ The reference time is `Jan 2, 2006 at 3:04:05 PM MST`, which can be remembered a
 
 ### Supported formats
 
-- Year: 2006 and 06 (but not Ruby's %c for the century)
-- Month: January, JANUARY, Jan, JAN, 1, and 01, but not " 1" for space padding
-- Day: 2, 02, 002 (for day of year), Monday, MONDAY, Mon, MON, but not " 2" for space padding
-- Hour: 15, 3, pm, PM
-- Minute: 04
-- Second: 05, 05.000 for milliseconds and 05.000000 and 05.000000000
-- Time Zone: -7000, -07:00, -07:00:00, MST
+| Period              | Constants                                                                       |
+| ------------------- | ------------------------------------------------------------------------------- |
+| **Year**            | `2006` and `06`                                                                 |
+| **Month**           | `January`, `JANUARY`, `Jan`, `JAN`, `1`, `01`, and `_1` for space padding       |
+| **Day of the week** | `Mon`, `MON`, `Monday`, `MONDAY`                                                |
+| **Day of month**    | `2`, `02`, and `_2` for space padding                                           |
+| **Day of year**     | `002`                                                                           |
+| **Hour**            | `15`, `3`, `03`, `pm`, `PM`, `am`, `AM`                                         |
+| **Minute**          | `04`, but not `4`                                                               |
+| **Second**          | `05`, `05.000` for milliseconds and `05.000000` and `05.000000000`, but not `5` |
+| **Time Zone**       | `-7000`, `-07:00`, `-07:00:00`, `MST`                                           |
 
 ### Alternate usage
 
