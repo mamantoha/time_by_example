@@ -1,5 +1,9 @@
 # TimeByExample
 
+[![Crystal CI](https://github.com/mamantoha/time_by_example/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/time_by_example/actions/workflows/crystal.yml)
+[![GitHub release](https://img.shields.io/github/release/mamantoha/time_by_example.svg)](https://github.com/mamantoha/time_by_example/releases)
+[![License](https://img.shields.io/github/license/mamantoha/time_by_example.svg)](https://github.com/mamantoha/time_by_example/blob/master/LICENSE)
+
 Provides a Crystal implementation of Go-style time [formatting](https://pkg.go.dev/time#Time.Format) by example.
 
 ## Installation
